@@ -10,7 +10,7 @@
     />
     <div v-if="url !== ''" class="text-zinc-100">
       <p @click="copyToClipboard">Clique para copiar a url!</p>
-      <a class="text-zinc-400" href="{{ url }}">Clique para ir para a página!</a>
+      <a class="text-zinc-400" :href="url">Clique para ir para a página!</a>
     </div>
   </main>
 </template>
@@ -26,7 +26,7 @@ function copyToClipboard() {
 }
 
 async function sendFile(ev) {
-  const file = ev.target.files[0]
+  const file = document.querySelector('#file').files[0]
 
   const form = new FormData()
   form.append('file', file)
